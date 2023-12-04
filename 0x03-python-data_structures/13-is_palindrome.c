@@ -14,14 +14,14 @@ int palindrome(listint_t **head)
 /**
  * aux_palindrome - aux function
  *@head: head list
- *@tail: tail list
+ *@end: end list
  *Return: 0 if its not a palindrome, 1 if it is a palindrome
  */
-int aux_palindrome(listint_t **head, listint_t *tail)
+int aux_palindrome(listint_t **head, listint_t *end)
 {
-	if (tail == NULL)
+	if (end == NULL)
 		return (1);
-	if (aux_palindrome(head, tail->next) && (*head)->n == tail->n)
+	if (aux_palindrome(head, end->next) && (*head)->n == tail->n)
 	{
 		*head = (*head)->next;
 		return (1);
