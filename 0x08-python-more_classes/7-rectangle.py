@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Defines a Rectangle class."""
+
 
 class Rectangle():
     """a rectangle class
@@ -10,6 +12,7 @@ class Rectangle():
     Class Attributes:
     number_of_instances (int): Total number of rectangle instances.
     print_symbol (any): Symbol used for string representation.
+
     """
 
     number_of_instances = 0
@@ -29,7 +32,7 @@ class Rectangle():
     @property
     def width(self):
         """returns the value of width"""
-        return self.__width
+        return (self.__width)
 
     @width.setter
     def width(self, value):
@@ -44,7 +47,7 @@ class Rectangle():
     @property
     def height(self):
         """returns the value of height"""
-        return self.__height
+        return (self.__height)
 
     @height.setter
     def height(self, value):
@@ -52,7 +55,7 @@ class Rectangle():
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value < 0:
-            raise ValueError("height must be >= 0")
+            raise ValueError("width must be >= 0")
         else:
             self.__height = value
 
@@ -73,8 +76,9 @@ class Rectangle():
             return ""
         else:
             rect_str = ""
+            Rectangle.print_symbol = str(self.print_symbol)
             for _ in range(self.__height):
-                rect_str += str(self.print_symbol) * self.__width + "\n"
+                rect_str += Rectangle.print_symbol * self.__width + "\n"
             return rect_str[:-1]
 
     def __repr__(self):
@@ -82,7 +86,7 @@ class Rectangle():
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """deletes a rectangle instance"""
+        """deletes a triangle instance"""
         Rectangle.number_of_instances -= 1
 
         if Rectangle.number_of_instances < 0:
